@@ -18,7 +18,7 @@
 <body class="bg-white text-gray-800 dark:bg-black dark:text-white transition duration-300">
   <header class="bg-white/80 dark:bg-black/80 backdrop-blur sticky top-0 z-10 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a id="backLink" href="index.html" class="text-xl font-bold">← 戻る</a>
+      <a id="backLink" , href="#" class="text-xl font-bold">← 戻る</a>
       <button id="toggleTheme" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm font-semibold">🌓 モード切替</button>
     </div>
   </header>
@@ -35,7 +35,7 @@
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const mode = params.get('mode');
-
+    const backLink = document.getElementById('backLink');
     // モード反映
     if (mode === 'dark') {
       document.documentElement.classList.add('dark');
@@ -43,21 +43,24 @@
       document.documentElement.classList.remove('dark');
     }
 
-    // モード切替ボタン動作
     document.getElementById('toggleTheme').addEventListener('click', () => {
       const currentMode = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
       const nextMode = currentMode === 'dark' ? 'light' : 'dark';
+
+      // モード切替
       document.documentElement.classList.toggle('dark');
+
+      // URLのmodeパラメータ更新
       const newUrl = new URL(location.href);
       newUrl.searchParams.set('mode', nextMode);
       window.history.replaceState({}, '', newUrl);
+
+      // 戻るリンクのhrefも更新（最新モードで）
+      backLink.href = `index.html?mode=${nextMode}`;
     });
 
-    // 戻るリンクにも mode を保持
-    const backLink = document.getElementById('backLink');
-    if (mode) {
-      backLink.href = `index.html?mode=${mode}`;
-    }
+
+ 
 
     // エピソードデータ読み込み
     if (!id) {

@@ -65,6 +65,7 @@
       const newUrl = new URL(location.href);
       newUrl.searchParams.set('mode', nextMode);
       window.history.replaceState({}, '', newUrl);
+      mode= nextMode;
     });
 
     async function loadEpisodes() {
