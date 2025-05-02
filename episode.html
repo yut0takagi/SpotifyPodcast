@@ -41,7 +41,7 @@
     if (!id) {
   document.getElementById('episode-content').textContent = 'エピソードが指定されていません。';
     } else {
-    fetch('/data/01.json')
+      fetch(`data/${id}.json`)
       .then(response => response.json())
       .then(episodeData => {
         const container = document.getElementById('episode-content');
