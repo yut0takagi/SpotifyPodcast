@@ -1,0 +1,36 @@
+{
+    "id": "03",
+    "title": "第3回：LLMベース自律エージェントの最新サーベイ",
+    "image": "image.png",
+    "paper_url": "https://arxiv.org/abs/2402.13048",
+    "spotify_url": "https://open.spotify.com/episode/7tbu3AuFX6LVJkNgZ1IyoW?si=1e8ce6a367734283",
+    "summary": "大規模言語モデル（LLM）を活用した自律エージェントに関する最新の研究動向を、代表的な手法とともに俯瞰的に紹介します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "このサーベイ論文『A Survey on Large Language Model based Autonomous Agents』では、LLMをベースに設計されたエージェントの機能・構造・応用事例を体系的に整理しています。特に、計画・記憶・ツール利用・対話などのコンポーネントを持つアーキテクチャの分類と、代表的な研究（AutoGPT, BabyAGI, CAMELなど）をカバーしています。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "LLMエージェントの中核要素（プランニング・記憶・観察・行動選択など）の整理",
+          "AutoGPT, ReWOO, MetaGPT などの比較と設計思想の分析",
+          "評価指標の課題：一貫性、創造性、成功率などの定量化が未成熟",
+          "今後の研究課題：メモリの拡張性、信頼性、安全性の確保"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://open.spotify.com/episode/7tbu3AuFX6LVJkNgZ1IyoW?si=1e8ce6a367734283"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://arxiv.org/abs/2402.13048"
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,35 @@
+{
+    "id": "02",
+    "title": "第2回：Magentic-One - 汎用マルチエージェントによる複雑タスク解決",
+    "paper_url": "https://arxiv.org/abs/2404.10679",
+    "spotify_url": "https://open.spotify.com/episode/7J7i4vRyqO38ryaPGw8imH?si=355a9573e3234bea",
+    "summary": "複雑なタスクを分割し、汎用的な複数のAIエージェントで協調的に解決するアーキテクチャ「Magentic-One」について解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "この論文『Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks』では、汎用LLMを複数連携させてタスク分割・役割分担・協調的問題解決を行う新しいマルチエージェントフレームワークを提案しています。各エージェントは役割を明示的に持ち、相互通信・メモリ共有・計画の再構築を通じて高度なタスクを処理します。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "各エージェントが専用の役割（Planner, Reasoner, ToolUserなど）を持つ構造",
+          "エージェント同士のメッセージ交換と再帰的なプランニングにより複雑タスクを処理",
+          "LLM単体では難しい問題解決を、エージェントの組み合わせで実現する",
+          "タスク例：科学論文要約、コード生成、複雑なマルチステップQAなどで有効性を実証"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://open.spotify.com/episode/7J7i4vRyqO38ryaPGw8imH?si=355a9573e3234bea"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://arxiv.org/abs/2404.10679"
+          }
+        ]
+      }
+    ]
+  }

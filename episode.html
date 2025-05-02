@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>エピソード詳細</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 dark:bg-black dark:text-white transition duration-300">
+  <header class="bg-white/80 dark:bg-black/80 backdrop-blur sticky top-0 z-10 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-xl font-bold">← 戻る</a>
+      <button id="toggleTheme" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm font-semibold">🌓 モード切替</button>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-12" id="episode-content">
+    <!-- JSONから内容を挿入 -->
+  </main>
+
+  <footer class="text-center text-sm text-gray-500 py-8 border-t dark:border-gray-700">
+    © 2025 AI Agent Podcast. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('toggleTheme').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (!id) {
+  document.getElementById('episode-content').textContent = 'エピソードが指定されていません。';
+    } else {
+    fetch('/data/01.json')
+      .then(response => response.json())
+      .then(episodeData => {
+        const container = document.getElementById('episode-content');
+        const h1 = document.createElement('h1');
+        h1.className = "text-3xl font-extrabold mb-4";
+        h1.textContent = episodeData.title;
+        container.appendChild(h1);
+
+
+        const summary = document.createElement('p');
+        summary.className = "text-gray-600 dark:text-gray-300 mb-6";
+        summary.textContent = episodeData.summary;
+        container.appendChild(summary);
+
+        episodeData.sections.forEach(section => {
+          const sec = document.createElement('section');
+          sec.className = "mb-10";
+          const heading = document.createElement('h2');
+          heading.className = "text-xl font-semibold mb-2";
+          heading.textContent = section.heading;
+          sec.appendChild(heading);
+
+          if (section.content) {
+            const p = document.createElement('p');
+            p.className = "text-gray-700 dark:text-gray-300";
+            p.textContent = section.content;
+            sec.appendChild(p);
+          }
+
+          if (section.list) {
+            const ul = document.createElement('ul');
+            ul.className = "list-disc pl-6 text-gray-700 dark:text-gray-300";
+            section.list.forEach(item => {
+              const li = document.createElement('li');
+              li.textContent = item;
+              ul.appendChild(li);
+            });
+            sec.appendChild(ul);
+          }
+
+          if (section.links) {
+            section.links.forEach(link => {
+              const a = document.createElement('a');
+              a.href = link.url;
+              a.textContent = `▶ ${link.label}`;
+              a.target = "_blank";
+              a.className = "block text-blue-500 hover:underline mb-2";
+              sec.appendChild(a);
+            });
+          }
+
+          container.appendChild(sec);
+        });
+      })
+      .catch(err => {
+        document.getElementById('episode-content').textContent = 'エピソードデータの読み込みに失敗しました。';
+        console.error(err);
+      });
+    }
+  </script>
+</body>
+</html>

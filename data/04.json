@@ -1,0 +1,35 @@
+{
+    "id": "04",
+    "title": "第4回：Attention Is All You Need - Transformer論文解説",
+    "paper_url": "https://arxiv.org/abs/1706.03762",
+    "spotify_url": "https://open.spotify.com/episode/0qdzNiB1IXvVYEdR67AvgB?si=0257b66548fa4083",
+    "summary": "大規模言語モデルの礎を築いた名論文「Attention Is All You Need」について、その構造・意義・後続技術への影響を解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "本論文『Attention Is All You Need』は、従来のRNNベースのアーキテクチャを完全に置き換えるTransformerモデルを提案しました。自己注意機構（Self-Attention）を中心とした新構造により、高速かつ高精度な翻訳・言語処理を実現し、現在のLLMの基盤となっています。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "従来のSeq2Seqモデルとの違い：再帰なし、並列処理可能な構造",
+          "自己注意（Self-Attention）による文脈依存の学習",
+          "位置エンコーディングの導入で系列情報を保持",
+          "BERT・GPTなど、現在の大規模モデルの原点となった"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://open.spotify.com/episode/0qdzNiB1IXvVYEdR67AvgB?si=0257b66548fa4083"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://arxiv.org/abs/1706.03762"
+          }
+        ]
+      }
+    ]
+  }

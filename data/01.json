@@ -1,0 +1,35 @@
+{
+    "id": "01",
+    "title": "第1回：Emerging AI Agent Architectures",
+    "paper_url": "https://arxiv.org/abs/2404.11584",
+    "spotify_url": "https://open.spotify.com/episode/79hhLJI2Kwo6fTIJTHzTDL?si=8ee8014761a744d5",
+    "summary": "AIエージェントの計画・推論・ツール呼び出しにおける最新動向について、代表的なアーキテクチャを紹介しながら解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "この論文『The Landscape of Emerging AI Agent Architectures for Reasoning, Planning, and Tool Calling: A Survey』は、近年注目されるAIエージェント技術の発展を、3つの観点（推論・計画・ツール呼び出し）から俯瞰的に分析しています。特に、AutoGPT や ReAct などの代表的なアーキテクチャの構造、分類、進化を体系的に整理しています。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "Reasoning（推論）、Planning（計画）、Tool Calling（ツール呼び出し）という3つの中核機能に基づいてエージェントを整理",
+          "AutoGPT、ReAct、MRKL、CAMEL、EAGiなど注目される実装例を包括",
+          "Tool Useの設計方針とその課題（例：ツールの信頼性、プランナとの連携）を比較",
+          "Benchmarksの未整備、評価指標の統一性欠如といった今後の課題にも触れている"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://open.spotify.com/episode/79hhLJI2Kwo6fTIJTHzTDL?si=8ee8014761a744d5"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://arxiv.org/abs/2404.11584"
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Agent Podcast</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 dark:bg-black dark:text-white transition duration-300">
+  <header class="bg-white/70 dark:bg-black/70 backdrop-blur sticky top-0 z-10 shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-extrabold tracking-tight">AI Agent Podcast</h1>
+      <button id="toggleTheme" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm font-semibold">🌓 モード切替</button>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <section class="text-center mb-12">
+      <img src="img/image.png" alt="AI Agents Podcast Cover" class="mx-auto w-48 md:w-64 rounded-xl shadow-lg mb-6">
+      <h2 class="text-4xl font-extrabold mb-2">AIの最前線を、あなたの耳に。</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">論文ベースで語る、知的なAIエージェント解説Podcast</p>
+    </section>
+
+    <div id="episodes" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- JSONから各エピソードを挿入 -->
+    </div>
+  </main>
+
+  <footer class="text-center text-sm text-gray-500 py-8 border-t dark:border-gray-700">
+    © 2025 AI Agent Podcast. All rights reserved.
+  </footer>
+
+  <template id="episodeTemplate">
+    <div class="rounded-xl bg-white dark:bg-gray-800 shadow-lg p-6 hover:shadow-2xl transition">
+      <h3 class="text-xl font-bold episode-title mb-2"></h3>
+      <p class="text-gray-600 dark:text-gray-300 episode-summary mb-4"></p>
+      <a class="inline-block text-blue-600 dark:text-blue-400 font-medium episode-link" target="_blank">▶ 詳細を見る</a>
+    </div>
+  </template>
+
+  <script>
+    document.getElementById('toggleTheme').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    async function loadEpisodes() {
+      const container = document.getElementById('episodes');
+      const template = document.getElementById('episodeTemplate');
+
+      // GitHub Pagesではファイル一覧取得ができないため、IDを手動で列挙（自動化したい場合はビルド時に対応）
+      const episodeIds = ["01","02","03","04"];
+
+      try {
+        const fetches = episodeIds.map(id => fetch(`data/${id}.json`).then(res => res.json()));
+        const episodes = await Promise.all(fetches);
+
+        for (const episode of episodes) {
+          const clone = template.content.cloneNode(true);
+          clone.querySelector('.episode-title').textContent = episode.title;
+          clone.querySelector('.episode-summary').textContent = episode.summary;
+          clone.querySelector('.episode-link').href = `episode.html?id=${episode.id}`;
+          container.appendChild(clone);
+        }
+      } catch (error) {
+        container.innerHTML = '<p class="text-red-500">エピソードの読み込みに失敗しました。</p>';
+        console.error(error);
+      }
+    }
+
+    loadEpisodes();
+  </script>
+</body>
+</html>
