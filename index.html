@@ -45,31 +45,45 @@
     <div class="rounded-xl bg-white dark:bg-gray-800 shadow-lg p-6 hover:shadow-2xl transition">
       <h3 class="text-xl font-bold episode-title mb-2"></h3>
       <p class="text-gray-600 dark:text-gray-300 episode-summary mb-4"></p>
-      <a class="inline-block text-blue-600 dark:text-blue-400 font-medium episode-link" target="_blank">▶ 詳細を見る</a>
+      <a class="inline-block text-blue-600 dark:text-blue-400 font-medium episode-link">▶ 詳細を見る</a>
     </div>
   </template>
 
   <script>
+    const params = new URLSearchParams(location.search);
+    const mode = params.get('mode');
+    if (mode === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else if (mode === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+
     document.getElementById('toggleTheme').addEventListener('click', () => {
+      const currentMode = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const nextMode = currentMode === 'dark' ? 'light' : 'dark';
       document.documentElement.classList.toggle('dark');
+      const newUrl = new URL(location.href);
+      newUrl.searchParams.set('mode', nextMode);
+      window.history.replaceState({}, '', newUrl);
     });
 
     async function loadEpisodes() {
       const container = document.getElementById('episodes');
       const template = document.getElementById('episodeTemplate');
-
-      // GitHub Pagesではファイル一覧取得ができないため、IDを手動で列挙（自動化したい場合はビルド時に対応）
-      const episodeIds = ["01","02","03","04"];
+      const episodeIds = ["01", "02", "03", "04"];
 
       try {
-        const fetches = episodeIds.map(id => fetch(`data/${id}.json`).then(res => res.json()));
+        const fetches = episodeIds.map(id => fetch(`./data/${id}.json`).then(res => res.json()));
         const episodes = await Promise.all(fetches);
 
         for (const episode of episodes) {
           const clone = template.content.cloneNode(true);
           clone.querySelector('.episode-title').textContent = episode.title;
           clone.querySelector('.episode-summary').textContent = episode.summary;
-          clone.querySelector('.episode-link').href = `episode.html?id=${episode.id}`;
+
+          const link = `episode.html?id=${episode.id}` + (mode ? `&mode=${mode}` : '');
+          clone.querySelector('.episode-link').href = link;
+
           container.appendChild(clone);
         }
       } catch (error) {

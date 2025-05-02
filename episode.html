@@ -18,7 +18,7 @@
 <body class="bg-white text-gray-800 dark:bg-black dark:text-white transition duration-300">
   <header class="bg-white/80 dark:bg-black/80 backdrop-blur sticky top-0 z-10 shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-xl font-bold">← 戻る</a>
+      <a id="backLink" href="index.html" class="text-xl font-bold">← 戻る</a>
       <button id="toggleTheme" class="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm font-semibold">🌓 モード切替</button>
     </div>
   </header>
@@ -32,74 +32,96 @@
   </footer>
 
   <script>
-    document.getElementById('toggleTheme').addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
-
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
+    const mode = params.get('mode');
+
+    // モード反映
+    if (mode === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else if (mode === 'light') {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // モード切替ボタン動作
+    document.getElementById('toggleTheme').addEventListener('click', () => {
+      const currentMode = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const nextMode = currentMode === 'dark' ? 'light' : 'dark';
+      document.documentElement.classList.toggle('dark');
+      const newUrl = new URL(location.href);
+      newUrl.searchParams.set('mode', nextMode);
+      window.history.replaceState({}, '', newUrl);
+    });
+
+    // 戻るリンクにも mode を保持
+    const backLink = document.getElementById('backLink');
+    if (mode) {
+      backLink.href = `index.html?mode=${mode}`;
+    }
+
+    // エピソードデータ読み込み
     if (!id) {
-  document.getElementById('episode-content').textContent = 'エピソードが指定されていません。';
+      document.getElementById('episode-content').textContent = 'エピソードが指定されていません。';
     } else {
-      fetch(`data/${id}.json`)
-      .then(response => response.json())
-      .then(episodeData => {
-        const container = document.getElementById('episode-content');
-        const h1 = document.createElement('h1');
-        h1.className = "text-3xl font-extrabold mb-4";
-        h1.textContent = episodeData.title;
-        container.appendChild(h1);
+      fetch(`./data/${id}.json`)
+        .then(response => response.json())
+        .then(episodeData => {
+          const container = document.getElementById('episode-content');
+          const h1 = document.createElement('h1');
+          h1.className = "text-3xl font-extrabold mb-4";
+          h1.textContent = episodeData.title;
+          container.appendChild(h1);
 
+          const summary = document.createElement('p');
+          summary.className = "text-gray-600 dark:text-gray-300 mb-6";
+          summary.textContent = episodeData.summary;
+          container.appendChild(summary);
 
-        const summary = document.createElement('p');
-        summary.className = "text-gray-600 dark:text-gray-300 mb-6";
-        summary.textContent = episodeData.summary;
-        container.appendChild(summary);
+          episodeData.sections.forEach(section => {
+            const sec = document.createElement('section');
+            sec.className = "mb-10";
 
-        episodeData.sections.forEach(section => {
-          const sec = document.createElement('section');
-          sec.className = "mb-10";
-          const heading = document.createElement('h2');
-          heading.className = "text-xl font-semibold mb-2";
-          heading.textContent = section.heading;
-          sec.appendChild(heading);
+            const heading = document.createElement('h2');
+            heading.className = "text-xl font-semibold mb-2";
+            heading.textContent = section.heading;
+            sec.appendChild(heading);
 
-          if (section.content) {
-            const p = document.createElement('p');
-            p.className = "text-gray-700 dark:text-gray-300";
-            p.textContent = section.content;
-            sec.appendChild(p);
-          }
+            if (section.content) {
+              const p = document.createElement('p');
+              p.className = "text-gray-700 dark:text-gray-300";
+              p.textContent = section.content;
+              sec.appendChild(p);
+            }
 
-          if (section.list) {
-            const ul = document.createElement('ul');
-            ul.className = "list-disc pl-6 text-gray-700 dark:text-gray-300";
-            section.list.forEach(item => {
-              const li = document.createElement('li');
-              li.textContent = item;
-              ul.appendChild(li);
-            });
-            sec.appendChild(ul);
-          }
+            if (section.list) {
+              const ul = document.createElement('ul');
+              ul.className = "list-disc pl-6 text-gray-700 dark:text-gray-300";
+              section.list.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+              });
+              sec.appendChild(ul);
+            }
 
-          if (section.links) {
-            section.links.forEach(link => {
-              const a = document.createElement('a');
-              a.href = link.url;
-              a.textContent = `▶ ${link.label}`;
-              a.target = "_blank";
-              a.className = "block text-blue-500 hover:underline mb-2";
-              sec.appendChild(a);
-            });
-          }
+            if (section.links) {
+              section.links.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.url;
+                a.textContent = `▶ ${link.label}`;
+                a.target = "_blank";
+                a.className = "block text-blue-500 hover:underline mb-2";
+                sec.appendChild(a);
+              });
+            }
 
-          container.appendChild(sec);
+            container.appendChild(sec);
+          });
+        })
+        .catch(err => {
+          document.getElementById('episode-content').textContent = 'エピソードデータの読み込みに失敗しました。';
+          console.error(err);
         });
-      })
-      .catch(err => {
-        document.getElementById('episode-content').textContent = 'エピソードデータの読み込みに失敗しました。';
-        console.error(err);
-      });
     }
   </script>
 </body>
