@@ -1,0 +1,39 @@
+{
+    "id": "05",
+    "title": "第5回:BitNet b1.58 2B4T - 1ビットLLMの時代",
+    "paper_url": "https://arxiv.org/abs/2504.12285",
+    "spotify_url": "https://open.spotify.com/episode/2thsOklOewatmFGNdPWzri?si=lz-bNFA_SJexXN12dN6WWg",
+    "summary": "Microsoftが開発した1ビット量子化LLM「BitNet b1.58 2B4T」について、その技術的背景、性能、効率性、そして今後の展望を解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "BitNet b1.58 2B4Tは、2Bパラメータ規模で4兆トークンを用いて学習された、世界初のオープンソースかつネイティブな1ビットLLMです。各重みが{-1, 0, 1}の三値を取り、1.58ビットの情報量を持つことで、従来の16ビットモデルと同等の性能を維持しながら、メモリ使用量やエネルギー消費を大幅に削減しています。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "各重みが{-1, 0, 1}の三値を取る1.58ビット量子化を採用",
+          "2Bパラメータ、4兆トークンで学習されたネイティブ1ビットLLM",
+          "従来の16ビットモデルと同等の性能を維持しつつ、メモリ使用量やエネルギー消費を大幅に削減",
+          "Hugging Faceでモデルと推論コードを公開し、GPUおよびCPUでの効率的な推論を実現"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://open.spotify.com/episode/2thsOklOewatmFGNdPWzri?si=lz-bNFA_SJexXN12dN6WWg"
+          },
+          {
+            "label": "GitHubを見る",
+            "url": "https://github.com/microsoft/BitNet"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://arxiv.org/abs/2504.12285"
+          }
+        ]
+      }
+    ]
+  }
