@@ -1,0 +1,39 @@
+{
+    "id": "05",
+    "title": "第5回：The AI Agent Index - エージェントAIの現状と課題",
+    "paper_url": "https://arxiv.org/abs/2502.01635",
+    "spotify_url": "https://open.spotify.com/episode/2yhZ2PPRSKZrDhfTNP5EXb?si=59e84db6d8c241df",
+    "summary": "MITの研究者らが公開した「The AI Agent Index」は、現在展開されているエージェントAIシステムの技術的構成、使用目的、安全機能などを文書化した初の公開データベースです。本エピソードでは、その概要と示唆を解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "「The AI Agent Index」は、エージェントAIシステムの技術的構成、使用目的、安全機能などを文書化した初の公開データベースです。MITの研究者らが主導し、67のエージェントAIシステムを調査・分類しています。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "エージェントAIシステムの技術的構成、使用目的、安全機能を文書化",
+          "67のエージェントAIシステムを調査・分類",
+          "多くの開発者が能力や応用についての情報を提供しているが、安全性やリスク管理に関する情報は限られている",
+          "ユーザー、開発者、政策立案者にとって有益な情報を提供"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://open.spotify.com/episode/2yhZ2PPRSKZrDhfTNP5EXb?si=59e84db6d8c241df"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://arxiv.org/abs/2502.01635"
+          },
+          {
+            "label": "AI Agent Index データベース",
+            "url": "https://aiagentindex.mit.edu/"
+          }
+        ]
+      }
+    ]
+  }
