@@ -1,0 +1,39 @@
+{
+    "id": "05",
+    "title": "第8回：CAMEL - マルチエージェントLLM社会の探求",
+    "paper_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/a3621ee907def47c1b952ade25c67698-Paper-Conference.pdf",
+    "spotify_url": "https://creators.spotify.com/pod/show/takachanman-jp/episodes/08-CAMEL-Role-Playing-for-LLM-Society-Exploration-e32f87b",
+    "summary": "CAMELは、複数のLLMエージェントが自律的に協調し、複雑なタスクを解決するための新たなフレームワークです。本エピソードでは、その仕組みと可能性について解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "本論文では、チャットベースの大規模言語モデル（LLM）の進化に伴い、複数のエージェントが自律的に協調してタスクを遂行するためのフレームワーク「CAMEL」を提案しています。人間の介入を最小限に抑えつつ、エージェント同士が役割を持ち、対話を通じて問題解決を図る仕組みが特徴です。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "人間の指示なしでエージェント同士が協調する「ロールプレイング」手法の導入",
+          "初期プロンプトのみでエージェント間の対話を誘導する「インセプションプロンプティング」",
+          "マルチエージェント間の協調や競合の挙動を観察可能な実験設計",
+          "オープンソースライブラリとして公開され、再現性と拡張性を確保"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          {
+            "label": "Spotifyで聴く",
+            "url": "https://creators.spotify.com/pod/show/takachanman-jp/episodes/08-CAMEL-Role-Playing-for-LLM-Society-Exploration-e32f87b"
+          },
+          {
+            "label": "論文を見る",
+            "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/a3621ee907def47c1b952ade25c67698-Paper-Conference.pdf"
+          },
+          {
+            "label": "GitHubリポジトリ",
+            "url": "https://github.com/camel-ai/camel"
+          }
+        ]
+      }
+    ]
+  }
