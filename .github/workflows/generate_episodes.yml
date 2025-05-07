@@ -1,0 +1,39 @@
+name: Generate Episodes from Staged WAV
+
+on:
+  pull_request:
+    paths:
+      - 'generated_data/*.wav'
+
+jobs:
+  generate_episode:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Check out repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          fetch-depth: 0  # PR時のdiff取得に必要
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install pydub
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: 🎧 Run combine script
+        run: python src/combine_staged_wav.py
+
+      - name: ✅ Commit generated files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add generated_episodes/*.wav
+          git commit -m "🎙 自動生成: エピソード音声を追加"
+          git push
