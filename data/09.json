@@ -1,0 +1,29 @@
+{
+    "id": "09",
+    "title": "第09回：AIは法的人格を持てるのか？- ソルムの論考から",
+    "paper_url": "http://scholarship.law.unc.edu/nclr/vol70/iss4/4",
+    "spotify_url": "https://open.spotify.com/episode/39Smywm4e7hrtrEa6dASPP?si=_XVigG_hRQKEGhiZxxOj8A",
+    "summary": "AIが法的主体たりうるのか——1992年にLawrence B. Solumが提起したこの哲学的かつ法的問いに、現代の視点から迫ります。AIを受託者や憲法上の権利主体と仮定した思考実験を通じて、法と知能の境界を探ります。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "本論文では、AIが将来的に人間と同様に『法的人格（legal personhood）』を持ちうるかを検討。受託者や訴訟当事者としてのAIを想定し、法律がどのように知性・意志・責任能力を捉えているかを明らかにする。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "AIが法的責任を負える条件とは何か",
+          "信託受託者や法人の法的人格との比較分析",
+          "Searleの「中国語の部屋」やTuring Testとの接点",
+          "人格と知性を巡る法哲学的な視点の提示"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          { "label": "Spotifyで聴く", "url": "https://open.spotify.com/episode/39Smywm4e7hrtrEa6dASPP?si=_XVigG_hRQKEGhiZxxOj8A" },
+          { "label": "論文を見る", "url": "http://scholarship.law.unc.edu/nclr/vol70/iss4/4" }
+        ]
+      }
+    ]
+  }

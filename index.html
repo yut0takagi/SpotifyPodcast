@@ -40,7 +40,9 @@
   </main>
 
   <footer class="text-center text-sm text-gray-500 py-8 border-t dark:border-gray-700">
-    © 2025 AI Agent Podcast. All rights reserved.
+    © 2025 AI Agent Podcast. All rights reserved.<br />
+    本Podcastは、AI Agentsの普及,周知,教育のために配信しており、収益化しておりません。
+    
   </footer>
 
   <template id="episodeTemplate">
@@ -73,7 +75,7 @@
     async function loadEpisodes() {
       const container = document.getElementById('episodes');
       const template = document.getElementById('episodeTemplate');
-      const episodeIds = ["01", "02", "03", "04","05","06","07","08"];
+      const episodeIds = ["01", "02", "03", "04","05","06","07","08","09"];
 
       try {
         const fetches = episodeIds.map(id => fetch(`./data/${id}.json`).then(res => res.json()));
