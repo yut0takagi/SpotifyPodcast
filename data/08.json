@@ -2,7 +2,7 @@
     "id": "08",
     "title": "第8回：CAMEL - マルチエージェントLLM社会の探求",
     "paper_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/a3621ee907def47c1b952ade25c67698-Paper-Conference.pdf",
-    "spotify_url": "https://creators.spotify.com/pod/show/takachanman-jp/episodes/08-CAMEL-Role-Playing-for-LLM-Society-Exploration-e32f87b",
+    "spotify_url": "https://open.spotify.com/episode/3EhB6tUWmZd2GxcoSgRljf?si=14d67e9bf2bd4a3e",
     "summary": "CAMELは、複数のLLMエージェントが自律的に協調し、複雑なタスクを解決するための新たなフレームワークです。本エピソードでは、その仕組みと可能性について解説します。",
     "sections": [
       {
@@ -23,7 +23,7 @@
         "links": [
           {
             "label": "Spotifyで聴く",
-            "url": "https://creators.spotify.com/pod/show/takachanman-jp/episodes/08-CAMEL-Role-Playing-for-LLM-Society-Exploration-e32f87b"
+            "url": "https://open.spotify.com/episode/3EhB6tUWmZd2GxcoSgRljf?si=14d67e9bf2bd4a3e"
           },
           {
             "label": "論文を見る",

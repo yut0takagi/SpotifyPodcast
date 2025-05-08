@@ -1,0 +1,29 @@
+{
+    "id": "10",
+    "title": "第10回：Better Call an Agent - 知能を環境に埋め込む新たなアプローチ",
+    "paper_url": "https://arxiv.org/abs/2412.10380",
+    "spotify_url": "https://open.spotify.com/episode/2tNedWaWJ7fGwZx6LKaZmk?si=e604b5260af2439e",
+    "summary": "エージェントを「環境側」に埋め込むという逆転の発想。LLMベースの「観察可能で賢い環境」が実現するインタラクションの革新と、その評価手法に迫ります。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "本論文は、通常エージェント内部に実装される知能を、環境側に移動させるという新しい視点を提示。環境がLLMを用いて行動を提案・誘導することで、ユーザーやロボットが知的に振る舞うよう設計されている。この設計により、エージェントに知能を組み込まずとも複雑な対話や問題解決が可能になる。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "知能を持つ環境：LLMが環境の一部として働く設計",
+          "意思決定の外在化：エージェント側のロジックを最小限に",
+          "テキストベースのマルチモーダル環境での評価実験を実施",
+          "CoT (Chain-of-Thought) やメモリ拡張による性能向上も検証"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          { "label": "Spotifyで聴く", "url": "https://open.spotify.com/episode/2tNedWaWJ7fGwZx6LKaZmk?si=e604b5260af2439e" },
+          { "label": "論文を見る", "url": "https://arxiv.org/abs/2412.10380" }
+        ]
+      }
+    ]
+  }
