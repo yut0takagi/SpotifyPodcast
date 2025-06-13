@@ -1,0 +1,29 @@
+{
+    "id": "11",
+    "title": "第11回：The Illusion of Thinking - AppleのLRM論文解説",
+    "paper_url": "https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf",
+    "spotify_url": "https://open.spotify.com/episode/1VYdeXRg49XZKXCecHEkJr?si=TDHszyfeRZi334PrkAR1og",
+    "summary": "Appleが2025年6月に公開した論文「The Illusion of Thinking」は、大規模言語モデルの“思考”能力を検証し、複雑な課題で性能が崩壊する事実を示しました。本エピソードでは、研究の背景と実験設計、そしてAI推論の限界が持つインパクトを解説します。",
+    "sections": [
+      {
+        "heading": "🔍 概要",
+        "content": "本論文は、パズル型課題で問題の複雑さを細かく制御し、Large Reasoning Models（LRM）がどこで失敗するかを体系的に分析した。結果として、複雑さが閾値を超えると精度が完全に崩壊し、思考トレースも短縮される“逆スケーリング”現象が観測された。"
+      },
+      {
+        "heading": "🎙️ ポイント",
+        "list": [
+          "パズル環境で“思考プロセス”を可視化し評価",
+          "低・中・高難度で性能が3段階に分岐",
+          "高難度ではLRMも従来LLMも“完全崩壊”",
+          "推論トレースが複雑さに応じて減少する逆スケーリング"
+        ]
+      },
+      {
+        "heading": "📎 リンク",
+        "links": [
+          { "label": "Spotifyで聴く", "url": "https://open.spotify.com/episode/1VYdeXRg49XZKXCecHEkJr?si=TDHszyfeRZi334PrkAR1og" },
+          { "label": "論文を見る", "url": "https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf" }
+        ]
+      }
+    ]
+  }

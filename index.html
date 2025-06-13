@@ -75,7 +75,7 @@
     async function loadEpisodes() {
       const container = document.getElementById('episodes');
       const template = document.getElementById('episodeTemplate');
-      const episodeIds = ["01", "02", "03", "04","05","06","07","08","09","10"];
+      const episodeIds = ["01", "02", "03", "04","05","06","07","08","09","10", "11"];
 
       try {
         const fetches = episodeIds.map(id => fetch(`./data/${id}.json`).then(res => res.json()));
